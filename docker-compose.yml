@@ -28,7 +28,7 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-
+      - ./init-script.sh:/docker-entrypoint-initdb.d/init-script.sh
 volumes:
   db_data:
 

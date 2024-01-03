@@ -66,18 +66,12 @@ class ProductController
     }
     public function fineNameProduct()
     {
-        // $limit = 12;
-        // $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-
-        // $offset = ($currentPage - 1) * $limit;
-        // $totalPropucts = $this->productsModel->getTotalProducts();
-        // $totalPages = ceil($totalPropucts / $limit);
         session_start();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name = htmlspecialchars(strip_tags($_POST['name'] ?? ''));
             $products = $this->productsModel->getProductsByName($name);
             
-            include_once 'app/views/users/product/index.php';
+            include_once 'app/views/users/product/fine.php';
         }
     }
     public function addtocartoneproduct($idProduct)
